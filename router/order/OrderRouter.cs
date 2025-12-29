@@ -10,9 +10,9 @@ namespace router
     public class OrderRouter
     {
         public static void RegisterOrderRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
             var group = app.MapGroup("/api/order")
@@ -20,7 +20,7 @@ namespace router
                 .AddEndpointFilter(new BlackListCheckMiddleware(ref rdb))
                 .WithTags("Orders");
 
-            var orderController = new OrderController(ref connection, ref rdb);
+            var orderController = new OrderController(connection, rdb);
 
             group
                 .MapPost(

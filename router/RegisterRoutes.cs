@@ -6,16 +6,16 @@ namespace router
     public class Router
     {
         public static void RegisterRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
-            router.AuthRouter.RegisterAuthRouter(ref app, ref connection, ref rdb);
-            router.BookRouter.RegisterBookRouter(ref app, ref connection, ref rdb);
-            router.UserRouter.RegisterUserRouter(ref app, ref connection, ref rdb);
-            router.WarehouseRouter.RegisterWarehouseRouter(ref app, ref connection, ref rdb);
-            router.OrderRouter.RegisterOrderRouter(ref app, ref connection, ref rdb);
+            router.AuthRouter.RegisterAuthRouter(app, connection, rdb);
+            router.BookRouter.RegisterBookRouter(app, connection, rdb);
+            router.UserRouter.RegisterUserRouter(app, connection, rdb);
+            router.WarehouseRouter.RegisterWarehouseRouter(app, connection, rdb);
+            router.OrderRouter.RegisterOrderRouter(app, connection, rdb);
         }
     }
 }

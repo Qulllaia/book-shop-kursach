@@ -10,9 +10,9 @@ namespace router
     public class UserRouter
     {
         public static void RegisterUserRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
             var group = app.MapGroup("/api/users")
@@ -21,7 +21,7 @@ namespace router
                 .AddEndpointFilter<RolesMiddlewareFilter>()
                 .WithTags("Users");
 
-            var userController = new UserController(ref connection, ref rdb);
+            var userController = new UserController(connection, rdb);
 
             group.MapGet("/get/{id}", (int id) => userController.GetUser(id)).WithName("GetUser");
             group.MapGet("/get", () => userController.GetUsers()).WithName("GetUsers");

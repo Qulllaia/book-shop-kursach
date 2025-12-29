@@ -10,9 +10,9 @@ namespace router
     public class WarehouseRouter
     {
         public static void RegisterWarehouseRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
             var group = app.MapGroup("/api/warehouse")
@@ -20,7 +20,7 @@ namespace router
                 .AddEndpointFilter(new BlackListCheckMiddleware(ref rdb))
                 .WithTags("Items");
 
-            var warehouseController = new WarehouseController(ref connection, ref rdb);
+            var warehouseController = new WarehouseController(connection, rdb);
 
             group
                 .MapPost(

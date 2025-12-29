@@ -9,13 +9,13 @@ namespace router
     public class AuthRouter
     {
         public static void RegisterAuthRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
             var group = app.MapGroup("/api/auth").WithTags("Auth");
-            var authController = new AuthController(ref connection, ref rdb);
+            var authController = new AuthController(connection, rdb);
 
             group
                 .MapPost(

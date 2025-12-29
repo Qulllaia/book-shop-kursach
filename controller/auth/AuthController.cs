@@ -13,7 +13,7 @@ namespace controller
         private IDbConnection _connection;
         private IDatabase _rdb;
 
-        public AuthController(ref IDbConnection connection, ref IDatabase rdb)
+        public AuthController(IDbConnection connection, IDatabase rdb)
         {
             _connection = connection;
             _rdb = rdb;

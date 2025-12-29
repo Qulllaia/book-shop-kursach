@@ -12,7 +12,7 @@ namespace controller
         private IDbConnection _connection;
         private IDatabase _rdb;
 
-        public WarehouseController(ref IDbConnection connection, ref IDatabase rdb)
+        public WarehouseController(IDbConnection connection, IDatabase rdb)
         {
             _connection = connection;
             _rdb = rdb;

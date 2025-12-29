@@ -10,9 +10,9 @@ namespace router
     public class BookRouter
     {
         public static void RegisterBookRouter(
-            ref WebApplication app,
-            ref IDbConnection connection,
-            ref IDatabase rdb
+            WebApplication app,
+            IDbConnection connection,
+            IDatabase rdb
         )
         {
             var group = app.MapGroup("/api/books")
@@ -20,7 +20,7 @@ namespace router
                 .AddEndpointFilter(new BlackListCheckMiddleware(ref rdb))
                 .WithTags("Books");
 
-            var bookController = new BookController(ref connection, ref rdb);
+            var bookController = new BookController(connection, rdb);
 
             group
                 .MapPost(

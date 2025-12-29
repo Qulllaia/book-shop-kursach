@@ -17,5 +17,5 @@ var redis = ConnectionMultiplexer.Connect("localhost:6379");
 
 var rdb = redis.GetDatabase();
 
-router.Router.RegisterRouter(ref app, ref connection, ref rdb);
+router.Router.RegisterRouter(app, connection, rdb);
 app.Run();

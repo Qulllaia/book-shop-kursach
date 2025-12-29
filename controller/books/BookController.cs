@@ -12,7 +12,7 @@ namespace controller
         private IDbConnection _connection;
         private IDatabase _rdb;
 
-        public BookController(ref IDbConnection connection, ref IDatabase rdb)
+        public BookController(IDbConnection connection, IDatabase rdb)
         {
             _connection = connection;
             _rdb = rdb;

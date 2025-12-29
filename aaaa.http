@@ -1,0 +1,150 @@
+
+
+
+
+
+#@const token eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWRfY2xhaW1zIjoiMiIsImVtYWlsX2NsYWltcyI6InVzZXIiLCJsb2dpbiI6InVzZXIiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3NjY5NDc3Mzh9.Fp3tmBdlt7YKNm2CEj6875acfVPKtXp-n_kRx70lVLFPE9jDNbp3DYRxgR9jAn9qMUSrvOKbHgNlrb2pVAOykg
+### Status check
+# @name login
+POST http://localhost:5235/api/auth/login
+Accept: application/json
+Content-Type: application/json
+
+{
+"login":"user",
+"password":"user"
+}
+
+
+### Status check
+#@name getbooks
+GET http://localhost:5235/api/books/get
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Status check 
+#@name createbooks
+POST http://localhost:5235/api/books/create
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+"name":"Qulllaia"
+}
+
+
+### Status check
+#@name userspatch
+PATCH  http://localhost:5235/api/users/update
+Authorization: Bearer {{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+"role":"user",
+"userid":1
+}
+
+### Status check
+#@name usersgetone
+GET  http://localhost:5235/api/users/get/7
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+
+### Status check
+#@name usersget
+GET  http://localhost:5235/api/users/get/
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Status check
+#@name usersdelete
+DELETE  http://localhost:5235/api/users/delete/6
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+
+### Status check
+#@name itemcreate
+POST  http://localhost:5235/api/warehouse/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+ "bookid": 6
+}
+
+### Status check
+#@name itemsget
+GET  http://localhost:5235/api/warehouse/get
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+### Status check
+#@name itemsupdate
+PATCH  http://localhost:5235/api/warehouse/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+"status": "STORED",
+"itemid":7
+}
+
+
+### Status chec
+#@name itemsget
+GET  http://localhost:5235/api/warehouse/get/7
+Authorization: {{token}}
+Accept: application/json
+
+### Status check
+#@name itemsget
+DELETE  http://localhost:5235/api/warehouse/delete/6
+Authorization: {{token}}
+Accept: application/json
+
+
+### Status check
+#@name ordercreate
+POST  http://localhost:5235/api/order/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+"itemid":9,
+"userid":2
+}
+
+
+### Status check
+#@name ordergetforuser
+GET  http://localhost:5235/api/order/get/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Status check
+#@name ordergetone
+GET  http://localhost:5235/api/order/get/12/userid/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Status check
+#@name orderpatch
+PATCH  http://localhost:5235/api/order/update
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+"status": "CANCELLED",
+"itemid":9,
+"orderid":12,
+"userid":2
+}
